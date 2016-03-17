@@ -42,6 +42,7 @@ func UploadImages() {
       continue
     }
     clipboard.WriteAll(url)
+    PlaySound()
 
     err = deleteFile(filename)
     if err != nil {
@@ -127,6 +128,7 @@ func sendFile(req *http.Request) (string, error) {
   defer res.Body.Close()
 
   if res.StatusCode != 201 {
+    fmt.Printf("status code %v\n", res.StatusCode)
     return "", errors.New("Error uploading file")
   }
 

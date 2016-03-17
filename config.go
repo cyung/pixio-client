@@ -7,7 +7,7 @@ import (
 )
 
 type Configuration struct {
-  Key string `json:"volume"`
+  Key string `json:"key"`
   Volume float64 `json:"volume"`
 }
 

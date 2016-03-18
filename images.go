@@ -17,8 +17,6 @@ type Image struct {
   Url string `json:"url"`
 }
 
-const folder string = "/Users/chris/Desktop"
-
 func UploadImages() {
   for {
     time.Sleep(1 * time.Second)
@@ -53,7 +51,7 @@ func UploadImages() {
 }
 
 func getFile() (string, error) {
-  d, err := os.Open(folder)
+  d, err := os.Open(GetFolder())
   if err != nil {
     return "", err
   }
@@ -80,7 +78,7 @@ func getFile() (string, error) {
 }
 
 func prepareFile(filename string) (*http.Request, error) {
-  file, err := os.Open(folder + "/" + filename)
+  file, err := os.Open(GetFolder() + "/" + filename)
   if err != nil {
     return nil, err
   }
@@ -142,7 +140,7 @@ func sendFile(req *http.Request) (string, error) {
 }
 
 func deleteFile(filename string) error {
-  err := os.Remove(folder + "/" + filename)
+  err := os.Remove(GetFolder() + "/" + filename)
   if err != nil {
     return err
   }

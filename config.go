@@ -8,12 +8,12 @@ import (
 
 type Configuration struct {
   Key string `json:"key"`
-  Volume float64 `json:"volume"`
+  Volume float32 `json:"volume"`
   Directory string `json:"directory"`
 }
 
 var _key string
-var _volume float64
+var _volume float32
 var _directory string
 const _base_url string = "http://pixio.space"
 
@@ -42,7 +42,7 @@ func GetBaseUrl() string {
   return _base_url
 }
 
-func GetVolume() float64 {
+func GetVolume() float32 {
   return _volume
 }
 
